@@ -10,13 +10,11 @@ import android.widget.Toast;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn_Start;
-    Button btn_DB;
-    Button btn_PER;
-    Button btn_BLUE;
-    Button btn_Wi_Fi;
-
-
+    Button buttonStart;
+    Button buttonCheckDbConnection;
+    Button buttonCheckPermissions;
+    Button buttonEnableBt;
+    Button buttonEnableWiFi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,57 +22,47 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
+        buttonStart =findViewById(R.id.buttonStartMenu);
+        buttonCheckDbConnection =   findViewById(R.id.buttonCheckDbConnMenu);
+        buttonCheckPermissions =  findViewById(R.id.buttonCheckPermissionsMenu);
+        buttonEnableBt = findViewById(R.id.buttonEnableBtMenu);
+        buttonEnableWiFi =findViewById(R.id.buttonEnableWiFiMenu);
 
-
-        btn_Start =findViewById(R.id.buttonStartMenu);
-        btn_DB =   findViewById(R.id.buttonCheckDbConnMenu);
-        btn_PER =  findViewById(R.id.buttonCheckPermissionsMenu);
-        btn_BLUE = findViewById(R.id.buttonEnableBtMenu);
-        btn_Wi_Fi =findViewById(R.id.buttonEnableWiFiMenu);
-
-
-        btn_Start.setOnClickListener(new View.OnClickListener() {
+        buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), MapActivity.class));
 
             }
         });
-
-        btn_DB.setOnClickListener(new View.OnClickListener() {
+        buttonCheckDbConnection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, " OK ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "CHECK DB CONNECTION BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
 
             }
         });
-
-        btn_PER.setOnClickListener(new View.OnClickListener() {
+        buttonCheckPermissions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(MainActivity.this, " OK ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "CHECK PERMISSIONS BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
 
             }
         });
-
-        btn_BLUE.setOnClickListener(new View.OnClickListener() {
+        buttonEnableBt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, " OK ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "ENABLE BLUETOOTH BUTTON CLICKED! ", Toast.LENGTH_SHORT).show();
 
             }
         });
-
-        btn_Wi_Fi.setOnClickListener(new View.OnClickListener() {
+        buttonEnableWiFi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, " OK ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "ENABLE WI-FI BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
 
             }
         });
-
-
     }
-
 }

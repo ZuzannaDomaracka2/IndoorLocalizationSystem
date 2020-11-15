@@ -20,10 +20,12 @@
         android:id="@+id/cursorMarker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:scaleX="0.4"
+        android:scaleY="0.4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/abc_vector_test"
+        app:srcCompat="@drawable/cursor_marker"
         android:contentDescription="Cursor Marker" />
 </androidx.constraintlayout.widget.ConstraintLayout>

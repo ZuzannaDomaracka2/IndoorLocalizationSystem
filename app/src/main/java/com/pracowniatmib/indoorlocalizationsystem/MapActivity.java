@@ -1,9 +1,12 @@
 package com.pracowniatmib.indoorlocalizationsystem;
 
+import android.icu.number.Scale;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -21,6 +24,9 @@ public class MapActivity extends AppCompatActivity {
     Button buttonAlgorithmMode;
     Button buttonTestMap;
 
+    private ScaleGestureDetector scaleGestureDetector;
+    private float scaleFactor = 1.0f;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +34,7 @@ public class MapActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
         fragmentManager = getSupportFragmentManager();
+        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
 
         buttonSettings = findViewById(R.id.buttonSettingsMap);
         buttonUpdateMap = findViewById(R.id.buttonUpdateMap);
@@ -48,7 +55,6 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MapActivity.this, "SETTINGS BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -56,16 +62,13 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MapActivity.this, "UPDATE MAP BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
-
             }
         });
 
         buttonSensorMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Toast.makeText(MapActivity.this, "SENSOR MODE BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -73,7 +76,6 @@ public class MapActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MapActivity.this, "ALGORITHM MODE BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
-
             }
         });
     }
@@ -83,5 +85,24 @@ public class MapActivity extends AppCompatActivity {
         super.onResumeFragments();
         mapViewFragment = (MapFragment) fragmentManager.findFragmentById(R.id.mapViewFragment);
         mapViewFragment.setMap(R.drawable.default_indoor_map);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        scaleGestureDetector.onTouchEvent(event);
+        return true;
+    }
+
+    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener
+    {
+        @Override
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector)
+        {
+            scaleFactor *= scaleGestureDetector.getScaleFactor();
+            scaleFactor = Math.max(0.8f, Math.min(scaleFactor, 8.0f));
+            mapViewFragment.getView().setScaleX(scaleFactor);
+            mapViewFragment.getView().setScaleY(scaleFactor);
+            return true;
+        }
     }
 }

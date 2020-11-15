@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">Indoor Localization System</string>
-    <string name="title_activity_main2">MainActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="indoor_localization_system">INDOOR\nLOCALIZATION\nSYSTEM</string>
+    <string name="start">START</string>
+    <string name="debug_test_window">DEBUG TEST WINDOW</string>
+    <string name="check_db_connection">CHECK DB\nCONNECTION</string>
+    <string name="check_permissions">CHECK\nPERMISSIONS</string>
+    <string name="enable_bluetooth">ENABLE\nBLUETOOTH</string>
+    <string name="enable_wi_fi">ENABLE\nWI-FI</string>
+    <string name="test_map">TEST MAP</string>
+    <string name="settings">SETTINGS</string>
+    <string name="update_map">UPDATE\nMAP</string>
+    <string name="sensor_mode">SENSOR\nMODE</string>
+    <string name="algorithm_mode">ALGORITHM\nMODE</string>
 </resources>

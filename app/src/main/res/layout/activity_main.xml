@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/imageLogoMenu"
         android:layout_width="0dp"
         android:layout_height="117dp"
         android:layout_marginLeft="16dp"
@@ -18,16 +18,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="PUT Logo" />
 
     <TextView
-        android:id="@+id/txt_title"
+        android:id="@+id/textTitleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="INDOOR\nLOCALIZATION\nSYSTEM"
+        android:text="@string/indoor_localization_system"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="25sp"
@@ -36,17 +37,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogoMenu"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btn_start"
+        android:id="@+id/buttonStartMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="START"
+        android:text="@string/start"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -54,12 +55,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintTop_toBottomOf="@+id/textTitleMenu"
         app:layout_constraintVertical_bias="0.2" />
 
 
     <TextView
-        android:id="@+id/txt_debug"
+        android:id="@+id/textDebugMenu"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -69,49 +70,49 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/txt_border"
         android:ems="10"
-        android:text="DEBUG TEST WINDOW"
+        android:text="@string/debug_test_window"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_1"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCheckDbConnMenu"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_start" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonStartMenu" />
 
     <Button
-        android:id="@+id/btn_1"
+        android:id="@+id/buttonCheckDbConnMenu"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
-        android:text="CHECK DB\nCONNECTION"
-        app:layout_constraintBottom_toTopOf="@+id/btn_2"
+        android:text="@string/check_db_connection"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCheckPermissionsMenu"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btn_2"
+        android:id="@+id/buttonCheckPermissionsMenu"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
 
-        android:text="CHECK\nPERMISSIONS"
-        app:layout_constraintBottom_toTopOf="@+id/btn_3"
+        android:text="@string/check_permissions"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEnableBtMenu"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btn_3"
+        android:id="@+id/buttonEnableBtMenu"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="ENABLE\nBLUETOOTH"
-        app:layout_constraintBottom_toTopOf="@+id/btn_4"
+        android:text="@string/enable_bluetooth"
+        app:layout_constraintBottom_toTopOf="@+id/buttonEnableWiFiMenu"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/btn_4"
+        android:id="@+id/buttonEnableWiFiMenu"
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_marginEnd="8dp"
-        android:text="ENABLE\nWI-FI"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_debug"
+        android:text="@string/enable_wi_fi"
+        app:layout_constraintBottom_toBottomOf="@+id/textDebugMenu"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

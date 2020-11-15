@@ -1,3 +1,5 @@
+package com.pracowniatmib.indoorlocalizationsystem;
+
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
@@ -23,13 +25,13 @@ public class BeaconManager {
     private ScanFilter filter;
     private ScanSettings settings;
     private ScanCallback callback;
-    private Context context;
+    private final Context context;
     private String uuidStr = "";
     private int manufacturerId = -1;
 
-    private List<Integer> majorList = new ArrayList<Integer>();
-    private List<Integer> minorList = new ArrayList<Integer>();
-    private List<Integer> rssiList = new ArrayList<Integer>();
+    private List<Integer> majorList = new ArrayList<>();
+    private List<Integer> minorList = new ArrayList<>();
+    private List<Integer> rssiList = new ArrayList<>();
 
     public BeaconManager(Context context) {
         this.context = context;
@@ -69,7 +71,7 @@ public class BeaconManager {
                             final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.ERROR);
                             switch(state) {
                                 case BluetoothAdapter.STATE_ON:
-                                    Toast.makeText(context, "Bluetooth is enabled.", Toast.LENGTH_LONG);
+                                    Toast.makeText(context, "BLUETOOTH IS ENABLED", Toast.LENGTH_LONG).show();
                                     break;
                                 case BluetoothAdapter.STATE_TURNING_ON:
                                     scanner.startScan(Arrays.asList(filter), settings, callback);
@@ -88,11 +90,11 @@ public class BeaconManager {
                 context.registerReceiver(receiver, intentFilter);
             }
             else {
-                Toast.makeText(context, "The device doesn't support Bluetooth.", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "THIS DEVICE DOESN'T SUPPORT BLUETOOTH", Toast.LENGTH_LONG).show();
             }
         }
         else {
-            throw new NullPointerException("Can't recognize app context.");
+            throw new NullPointerException("CAN'T RECOGNIZE APP CONTEXT");
         }
     }
 

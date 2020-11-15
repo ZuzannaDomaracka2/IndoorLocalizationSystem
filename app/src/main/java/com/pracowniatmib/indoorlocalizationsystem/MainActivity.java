@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        btn_Start =findViewById(R.id.btn_start);
-        btn_DB =   findViewById(R.id.btn_1);
-        btn_PER =  findViewById(R.id.btn_2);
-        btn_BLUE = findViewById(R.id.btn_3);
-        btn_Wi_Fi =findViewById(R.id.btn_4);
+        btn_Start =findViewById(R.id.buttonStartMenu);
+        btn_DB =   findViewById(R.id.buttonCheckDbConnMenu);
+        btn_PER =  findViewById(R.id.buttonCheckPermissionsMenu);
+        btn_BLUE = findViewById(R.id.buttonEnableBtMenu);
+        btn_Wi_Fi =findViewById(R.id.buttonEnableWiFiMenu);
 
 
         btn_Start.setOnClickListener(new View.OnClickListener() {

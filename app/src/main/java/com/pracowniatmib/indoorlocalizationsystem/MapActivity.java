@@ -2,6 +2,8 @@ package com.pracowniatmib.indoorlocalizationsystem;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -10,11 +12,14 @@ import java.util.Objects;
 
 public class MapActivity extends AppCompatActivity {
 
-    Button btn_set;
-    Button btn_update;
-    Button btn_smode;
-    Button btn_almode;
+    FragmentManager fragmentManager;
+    MapFragment mapViewFragment;
 
+    Button buttonSettings;
+    Button buttonUpdateMap;
+    Button buttonSensorMode;
+    Button buttonAlgorithmMode;
+    Button buttonTestMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,44 +27,61 @@ public class MapActivity extends AppCompatActivity {
         setContentView(R.layout.activity_map);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-        btn_set=findViewById(R.id.btn_1M);
-        btn_update=findViewById(R.id.btn_2M);
-        btn_smode=findViewById(R.id.btn_3M);
-        btn_almode=findViewById(R.id.btn_4M);
+        fragmentManager = getSupportFragmentManager();
 
-        btn_set.setOnClickListener(new View.OnClickListener() {
+        buttonSettings = findViewById(R.id.buttonSettingsMap);
+        buttonUpdateMap = findViewById(R.id.buttonUpdateMap);
+        buttonSensorMode = findViewById(R.id.buttonSensorModeMap);
+        buttonAlgorithmMode = findViewById(R.id.buttonAlgorithmModeMap);
+        buttonTestMap = findViewById(R.id.buttonTestMap);
+
+        buttonTestMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("X: " + mapViewFragment.getMapX() + ", Y: " + mapViewFragment.getMapY());
+                mapViewFragment.moveMap(0,10);
+                mapViewFragment.rotateCursor(30);
+            }
+        });
+
+        buttonSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MapActivity.this, " OK ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MapActivity.this, "SETTINGS BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
 
             }
         });
 
-        btn_update.setOnClickListener(new View.OnClickListener() {
+        buttonUpdateMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MapActivity.this, " OK ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MapActivity.this, "UPDATE MAP BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
 
             }
         });
 
-        btn_smode.setOnClickListener(new View.OnClickListener() {
+        buttonSensorMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(MapActivity.this, " OK! ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MapActivity.this, "SENSOR MODE BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
 
             }
         });
 
-        btn_almode.setOnClickListener(new View.OnClickListener() {
+        buttonAlgorithmMode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MapActivity.this, " OK ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MapActivity.this, "ALGORITHM MODE BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
 
             }
         });
+    }
 
-
+    @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        mapViewFragment = (MapFragment) fragmentManager.findFragmentById(R.id.mapViewFragment);
+        mapViewFragment.setMap(R.drawable.default_indoor_map);
     }
 }

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         buttonCheckDbConnection = findViewById(R.id.buttonCheckDbConnMenu);
         buttonCheckPermissions = findViewById(R.id.buttonCheckPermissionsMenu);
         buttonEnableBt = findViewById(R.id.buttonEnableBtMenu);
-        buttonEnableWiFi =findViewById(R.id.buttonEnableWiFiMenu);
+        buttonEnableWiFi = findViewById(R.id.buttonEnableWiFiMenu);
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,14 +56,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
                 if (mBluetoothAdapter == null) {
-                    Toast.makeText(MainActivity.this, "Device does not support BLUETOOTH! ", Toast.LENGTH_SHORT).show();
-                    buttonEnableBt.setText("Device does not support BLUETOOTH");
+                    Toast.makeText(MainActivity.this, "DEVICE DOES NOT SUPPORT BLUETOOTH!", Toast.LENGTH_SHORT).show();
                 } else if (mBluetoothAdapter.isEnabled()) {
-                    Toast.makeText(MainActivity.this, "BLUETOOTH is ENABLE! ", Toast.LENGTH_SHORT).show();
-                    buttonEnableBt.setText("BLUETOOTH is ENABLE");
+                    Toast.makeText(MainActivity.this, "BLUETOOTH IS ENABLED!", Toast.LENGTH_SHORT).show();
+                    buttonEnableBt.setText(R.string.disable_bluetooth);
                 } else {
-                    Toast.makeText(MainActivity.this, "BLUETOOTH is DISABLE", Toast.LENGTH_SHORT).show();
-                    buttonEnableBt.setText("BLUETOOTH is DISABLE");
+                    Toast.makeText(MainActivity.this, "BLUETOOTH IS DISABLED!", Toast.LENGTH_SHORT).show();
+                    buttonEnableBt.setText(R.string.enable_bluetooth);
                 }
 
             }
@@ -75,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 WifiManager wifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
               if (wifi.isWifiEnabled())
                 {
-                    Toast.makeText(MainActivity.this, "WI-FI is ENABLE!", Toast.LENGTH_SHORT).show();
-                    buttonEnableWiFi.setText("WI-FI_is ENABLE");
+                    Toast.makeText(MainActivity.this, "WI-FI IS ENABLED!", Toast.LENGTH_SHORT).show();
+                    buttonEnableWiFi.setText(R.string.disable_wi_fi);
                 }
               else
-                  Toast.makeText(MainActivity.this, "WI-FI is DISABLE!", Toast.LENGTH_SHORT).show();
+                  Toast.makeText(MainActivity.this, "WI-FI IS DISABLED!", Toast.LENGTH_SHORT).show();
                 {
-                    buttonEnableWiFi.setText("WI-FI is DISABLE");
+                    buttonEnableWiFi.setText(R.string.enable_wi_fi);
                 }
             }
         });

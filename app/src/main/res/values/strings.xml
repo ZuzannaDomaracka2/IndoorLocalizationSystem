@@ -8,7 +8,9 @@
     <string name="check_db_connection">CHECK DB\nCONNECTION</string>
     <string name="check_permissions">CHECK\nPERMISSIONS</string>
     <string name="enable_bluetooth">ENABLE\nBLUETOOTH</string>
+    <string name="disable_bluetooth">DISABLE\nBLUETOOTH</string>
     <string name="enable_wi_fi">ENABLE\nWI-FI</string>
+    <string name="disable_wi_fi">DISABLE\nWI-FI</string>
     <string name="test_map">TEST MAP</string>
     <string name="settings">SETTINGS</string>
     <string name="update_map">UPDATE\nMAP</string>

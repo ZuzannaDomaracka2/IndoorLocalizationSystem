@@ -1,6 +1,7 @@
 package com.pracowniatmib.indoorlocalizationsystem;
 
 import android.animation.ObjectAnimator;
+import android.graphics.Bitmap;
 import android.graphics.Path;
 import android.os.Bundle;
 
@@ -54,12 +55,24 @@ public class MapFragment extends Fragment {
 
     public void rotateCursor(int angle) {
         RotateAnimation rotate = new RotateAnimation(cursorCurrentAngle, cursorCurrentAngle + angle, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        rotate.setDuration(500);
+        rotate.setDuration(250);
         rotate.setFillEnabled(true);
         rotate.setFillAfter(true);
         rotate.setInterpolator(new LinearInterpolator());
         cursorMarkerView.startAnimation(rotate);
         cursorCurrentAngle = cursorCurrentAngle + angle;
+    }
+
+    public void setCursorRotation(int angle)
+    {
+        if(cursorCurrentAngle == angle) return;
+        RotateAnimation rotate = new RotateAnimation(cursorCurrentAngle, angle, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        rotate.setDuration(250);
+        rotate.setFillEnabled(true);
+        rotate.setFillAfter(true);
+        rotate.setInterpolator(new LinearInterpolator());
+        cursorMarkerView.startAnimation(rotate);
+        cursorCurrentAngle = angle;
     }
 
     public MapFragment() {

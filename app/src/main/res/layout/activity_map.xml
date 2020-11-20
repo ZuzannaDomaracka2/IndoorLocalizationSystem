@@ -22,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+
     </androidx.fragment.app.FragmentContainerView>
 
     <Button
@@ -33,6 +34,42 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/mapViewFragment"
         app:layout_constraintEnd_toEndOf="@+id/mapViewFragment" />
+
+    <Button
+        android:id="@+id/buttonDown"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="58dp"
+        android:layout_marginBottom="16dp"
+        android:text="D"
+        app:layout_constraintBottom_toTopOf="@+id/textDebugMap"
+        app:layout_constraintStart_toStartOf="@+id/mapViewFragment" />
+
+    <Button
+        android:id="@+id/buttonLeft"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="L"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDown"
+        app:layout_constraintEnd_toStartOf="@+id/buttonDown" />
+
+    <Button
+        android:id="@+id/buttonUp"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:text="U"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDown"
+        app:layout_constraintEnd_toStartOf="@+id/buttonRight"
+        app:layout_constraintStart_toEndOf="@+id/buttonLeft" />
+
+    <Button
+        android:id="@+id/buttonRight"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="R"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDown"
+        app:layout_constraintStart_toEndOf="@+id/buttonDown" />
 
     <TextView
         android:id="@+id/textDebugMap"

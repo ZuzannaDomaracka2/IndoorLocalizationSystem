@@ -103,15 +103,6 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="@string/enable_bluetooth"
-        app:layout_constraintBottom_toTopOf="@+id/buttonEnableWiFiMenu"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <Button
-        android:id="@+id/buttonEnableWiFiMenu"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/enable_wi_fi"
         app:layout_constraintBottom_toBottomOf="@+id/textDebugMenu"
         app:layout_constraintEnd_toEndOf="parent" />
 

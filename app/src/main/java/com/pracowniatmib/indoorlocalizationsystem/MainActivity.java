@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     Button buttonCheckDbConnection;
     Button buttonCheckPermissions;
     Button buttonEnableBt;
-    Button buttonEnableWiFi;
     WifiManager wifiManager;
 
     @Override
@@ -31,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
         buttonCheckDbConnection = findViewById(R.id.buttonCheckDbConnMenu);
         buttonCheckPermissions = findViewById(R.id.buttonCheckPermissionsMenu);
         buttonEnableBt = findViewById(R.id.buttonEnableBtMenu);
-        buttonEnableWiFi = findViewById(R.id.buttonEnableWiFiMenu);
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "CHECK PERMISSIONS BUTTON CLICKED!", Toast.LENGTH_SHORT).show();
             }
         });
+
         buttonEnableBt.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -70,27 +67,5 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        buttonEnableWiFi.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onClick(View view) {
-              if (wifiManager.isWifiEnabled())
-                {
-                buttonEnableWiFi.setText("Turn WIFI ON");
-                Toast.makeText(MainActivity.this, "WI-FI IS ENABLED!", Toast.LENGTH_SHORT).show();
-                wifiManager.setWifiEnabled(false);
-                }
-              else if (!wifiManager.isWifiEnabled())
-              {
-                  buttonEnableWiFi.setText("Turn WIFI OFF");
-                  Toast.makeText(MainActivity.this, "WI-FI IS DISABLED!", Toast.LENGTH_SHORT).show();
-                  wifiManager.setWifiEnabled(true);
-              }
-
-            }
-        });
-
     }
 }
-

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonCheckPermissions;
     Button buttonEnableBt;
     Button buttonEnableWiFi;
+    WifiManager wifiManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         buttonCheckPermissions = findViewById(R.id.buttonCheckPermissionsMenu);
         buttonEnableBt = findViewById(R.id.buttonEnableBtMenu);
         buttonEnableWiFi = findViewById(R.id.buttonEnableWiFiMenu);
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
 
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,23 +70,27 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
         buttonEnableWiFi.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                WifiManager wifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
-              if (wifi.isWifiEnabled())
+              if (wifiManager.isWifiEnabled())
                 {
-                    Toast.makeText(MainActivity.this, "WI-FI IS ENABLED!", Toast.LENGTH_SHORT).show();
-                    buttonEnableWiFi.setText(R.string.disable_wi_fi);
+                buttonEnableWiFi.setText("Turn WIFI ON");
+                Toast.makeText(MainActivity.this, "WI-FI IS ENABLED!", Toast.LENGTH_SHORT).show();
+                wifiManager.setWifiEnabled(false);
                 }
-              else
+              else if (!wifiManager.isWifiEnabled())
+              {
+                  buttonEnableWiFi.setText("Turn WIFI OFF");
                   Toast.makeText(MainActivity.this, "WI-FI IS DISABLED!", Toast.LENGTH_SHORT).show();
-                {
-                    buttonEnableWiFi.setText(R.string.enable_wi_fi);
-                }
+                  wifiManager.setWifiEnabled(true);
+              }
+
             }
         });
 
     }
 }
+

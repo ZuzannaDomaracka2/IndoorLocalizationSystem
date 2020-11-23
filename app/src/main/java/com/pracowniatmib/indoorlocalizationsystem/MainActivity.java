@@ -44,10 +44,6 @@ public class MainActivity extends AppCompatActivity {
         dataUsers=FirebaseDatabase.getInstance().getReference("Users");
         addBuildings();
 
-
-
-
-
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,10 +89,6 @@ public class MainActivity extends AppCompatActivity {
         dataUsers.child(userId).child("coordinates").child("y").setValue("0");
 
     }
-
-
-
-
 
 
     public void addBuildings(){
@@ -151,8 +143,6 @@ public class MainActivity extends AppCompatActivity {
         dataBuildings.child(id2).child("floors").child("0").child("WiFi Transmitters").child("WiFi Transmitter 2").child("coordinates").child("x").setValue("1");
         dataBuildings.child(id2).child("floors").child("0").child("WiFi Transmitters").child("WiFi Transmitter 2").child("coordinates").child("y").setValue("1");
         dataBuildings.child(id2).child("floors").child("0").child("WiFi Transmitters").child("WiFi Transmitter 2").child("power").setValue("1");
-
-
     }
 
 
